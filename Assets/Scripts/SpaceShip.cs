@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Valve.VR;
 
 [RequireComponent(typeof(Rigidbody))]
 public class SpaceShip : MonoBehaviour
@@ -18,7 +19,7 @@ public class SpaceShip : MonoBehaviour
     public List<Transform> bulletBarrels;
     public GameObject bulletPrefab;
 
-    private void Start()
+	private void Start()
     {
         rb = GetComponent<Rigidbody>();
 

@@ -18,10 +18,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        var activeController = OVRInput.GetActiveController();
-
-        var direction = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-
-        rb.AddForce(new Vector3(direction.x, 0, direction.y));
+        //var activeController = OVRInput.GetActiveController();
+		//
+        //var direction = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+		//
+        //rb.AddForce(new Vector3(direction.x, 0, direction.y));
     }
 }

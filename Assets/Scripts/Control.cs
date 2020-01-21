@@ -16,14 +16,14 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OVRInput.Controller activeController = OVRInput.GetActiveController();
-
-        Vector2 thumbPos = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad, activeController);
-        Quaternion rotation = OVRInput.GetLocalControllerRotation(activeController);
-
-        debugText.text = rotation.ToString();
-
-        transform.position += new Vector3(thumbPos.x, thumbPos.y) * Time.deltaTime;
-        transform.rotation = rotation;
+        //OVRInput.Controller activeController = OVRInput.GetActiveController();
+		//
+        //Vector2 thumbPos = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad, activeController);
+        //Quaternion rotation = OVRInput.GetLocalControllerRotation(activeController);
+		//
+        //debugText.text = rotation.ToString();
+		//
+        //transform.position += new Vector3(thumbPos.x, thumbPos.y) * Time.deltaTime;
+        //transform.rotation = rotation;
     }
 }
