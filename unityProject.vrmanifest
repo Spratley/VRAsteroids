@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vrasteroids.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\VR and MoCap Station\\Desktop\\DiskKnee\\VRAsteroids\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "D:\\Documents\\School\\GDW\\VRAsteroids GDW3\\VRAsteroids\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "VRAsteroids [Testing]"
