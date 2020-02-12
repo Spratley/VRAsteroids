@@ -31,19 +31,17 @@ public class SpaceShip : MonoBehaviour
         Turn(Input.GetAxis("Horizontal") * turnRate, Vector3.up);
         Turn(Input.GetAxis("Vertical") * pitchRate, Vector3.right);
         Turn(Input.GetAxis("Roll") * spinRate, Vector3.forward);
-        Boost(transform.forward * Input.GetAxis("Jump"));
+        //Boost(transform.forward * Input.GetAxis("Jump"));
     }
-
-    private void FixedUpdate()
-    {
-
-    }
-
-
-
+    
     public void Turn(float rate, Vector3 relativeAxis)
     {
         rb.AddRelativeTorque(relativeAxis * rate);
+    }
+
+    public void BoostForward(float amount)
+    {
+        Boost(transform.forward * amount);
     }
 
     public void Boost(Vector3 direction)
@@ -61,10 +59,10 @@ public class SpaceShip : MonoBehaviour
 
     public GameObject CreateBullet(Transform spawnTransform)
     {
-        GameObject bullet = Instantiate(bulletPrefab);
-        bullet.transform.position = spawnTransform.position;
-        bullet.transform.rotation = spawnTransform.rotation;
-
-        return bullet;
+        //GameObject bullet = Instantiate(bulletPrefab);
+        //bullet.transform.position = spawnTransform.position;
+        //bullet.transform.rotation = spawnTransform.rotation;
+        
+        return null;
     }
 }

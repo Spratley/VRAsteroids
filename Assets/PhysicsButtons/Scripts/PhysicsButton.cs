@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class PhysicsButton : PhysicsDevice
 {
     [Space]
@@ -17,10 +18,11 @@ public class PhysicsButton : PhysicsDevice
 
     public float springForce;
 
+
     public override void UpdateValue()
     {
         base.UpdateValue();
-        value = (Mathf.Clamp((button.transform.localPosition.y - heightOffset) / range, 0, 1));
+        value = Mathf.Clamp((button.transform.localPosition.y - heightOffset) / range, 0, 1);
     }
 
     private void FixedUpdate()
@@ -30,16 +32,18 @@ public class PhysicsButton : PhysicsDevice
 
     public override void Update()
     {
-        if (sendAsBool) {
+        if (sendAsBool)
+        {
             UpdateValue();
 
             var val = Mathf.Clamp(1 - Mathf.Floor(value / sensitivity), 0, 1);
             var prevVal = Mathf.Clamp(1 - Mathf.Floor(prevValue / sensitivity), 0, 1);
 
-            if (val > 0 && (int)val != (int)prevVal) {
+            if (val > 0 && (int)val != (int)prevVal)
+            {
                 SendData(val);
             }
-            
+
             return;
         }
 
@@ -65,19 +69,22 @@ public class PhysicsButton : PhysicsDevice
 
     private void UpdateLimit()
     {
-       ConfigurableJoint outJoint;
-       if (button.TryGetComponent(out outJoint))
-       {
-           SoftJointLimit limit = outJoint.linearLimit;
-           limit.limit = range/2;
-           outJoint.linearLimit = limit;
-       }
+        ConfigurableJoint outJoint;
+        if (button.TryGetComponent(out outJoint))
+        {
+            SoftJointLimit limit = outJoint.linearLimit;
+            limit.limit = range / 2 * transform.localScale.y;
+            outJoint.linearLimit = limit;
+
+            outJoint.secondaryAxis = transform.up;
+            outJoint.axis = transform.right;
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
-        var start = transform.up * heightOffset + transform.position;
-        var end = transform.up * (heightOffset + range) + transform.position;
+        var start = transform.up * heightOffset * transform.localScale.y + transform.position;
+        var end = transform.up * (heightOffset + range) * transform.localScale.y + transform.position;
 
         Gizmos.DrawLine(start, end);
     }

@@ -43,7 +43,7 @@ public class PhysicsSlider : PhysicsDevice
         if (handle.TryGetComponent(out outJoint))
         {
             SoftJointLimit limit = outJoint.linearLimit;
-            limit.limit = range;
+            limit.limit = range * transform.localScale.z;
             outJoint.linearLimit = limit;
         }
     }

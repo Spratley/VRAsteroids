@@ -6,7 +6,10 @@ public class PhysicsTransformConstraint : MonoBehaviour
 {
 	public Transform parent;
 
-	private void FixedUpdate()
+	private void FixedUpdate() { UpdateTransform(); }
+    //private void Update() { UpdateTransform(); }
+
+    private void UpdateTransform()
 	{
 		transform.position = parent.position;
 		transform.rotation = parent.rotation;
