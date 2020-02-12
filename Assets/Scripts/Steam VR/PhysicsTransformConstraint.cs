@@ -6,8 +6,8 @@ public class PhysicsTransformConstraint : MonoBehaviour
 {
 	public Transform parent;
 
-	private void FixedUpdate() { UpdateTransform(); }
-    //private void Update() { UpdateTransform(); }
+	//private void FixedUpdate() { UpdateTransform(); }
+    private void Update() { UpdateTransform(); }
 
     private void UpdateTransform()
 	{
