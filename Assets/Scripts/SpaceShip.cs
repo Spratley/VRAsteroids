@@ -39,14 +39,29 @@ public class SpaceShip : MonoBehaviour
         rb.AddRelativeTorque(relativeAxis * rate);
     }
 
+    public void Boost(Vector3 direction)
+    {
+        rb.AddForce(direction * thrust);
+    }
+
     public void BoostForward(float amount)
     {
         Boost(transform.forward * amount);
     }
 
-    public void Boost(Vector3 direction)
+    public void TurnPitch(float amount)
     {
-        rb.AddForce(direction * thrust);
+        Turn(amount, Vector3.right);
+    }
+
+    public void TurnYaw(float amount)
+    {
+        Turn(amount, Vector3.up);
+    }
+
+    public void TurnRoll(float amount)
+    {
+        Turn(amount, Vector3.forward);
     }
 
     public void Fire()

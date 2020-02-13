@@ -48,6 +48,6 @@ public class PhysicsDevice : MonoBehaviour
         if (sendNegativeToPositive)
             val = (val - 0.5f) * 2;
 
-        toCall.Invoke(val);
+        toCall.Invoke(val * valueScale);
     }
 }
