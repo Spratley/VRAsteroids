@@ -12,7 +12,7 @@ public class pool : MonoBehaviour
     void Awake()
     {
   
-        ObjectPoolManager.GetManager().InitPool("Asteroid Pool", 20, pooledAsteroid);
+        ObjectPoolManager.GetManager().InitPool("Asteroid Pool", noOfAsteroids, pooledAsteroid);
         ObjectPoolManager.GetManager().InitPool("Laser Pool", noOfLasers, pooledLaser);
     
     }

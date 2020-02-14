@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1a0b960f7fcaf478b33a8e70d8dbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 400
+  distance: 5000
   rb: {fileID: 9183668128826064639}
   LaserOrigin: {x: 0, y: 0, z: 0}
   speed: 1
