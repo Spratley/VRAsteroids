@@ -10,7 +10,7 @@ public class Teleport : MonoBehaviour
         if (other.name == "Bottom" && body.velocity.y < 0.0f || other.name == "Top" && body.velocity.y > 0.0f)
         {
             var pos = body.position;
-            Debug.Log("Y: " + pos.y);
+            //Debug.Log("Y: " + pos.y);
             pos.y = -0.90f * pos.y;
             body.position = pos;
             //transform.Translate(0.0f, -1.5f * other.transform.position.y, 0.0f);
@@ -18,7 +18,7 @@ public class Teleport : MonoBehaviour
         if (other.name == "Left" && body.velocity.x < 0.0f || other.name == "Right" && body.velocity.x > 0.0f)
         {
             var pos = body.position;
-            Debug.Log("X: " + pos.x);
+            //Debug.Log("X: " + pos.x);
             pos.x = -0.90f * pos.x;
             body.position = pos;
             //transform.Translate(-1.5f * other.transform.position.x, 0.0f, 0.0f);
@@ -26,7 +26,7 @@ public class Teleport : MonoBehaviour
         if (other.name == "Front" && body.velocity.z < 0.0f || other.name == "Back" && body.velocity.z > 0.0f)
         {
             var pos = body.position;
-            Debug.Log("Z: " + pos.z);
+            //Debug.Log("Z: " + pos.z);
             pos.z = -0.90f * pos.z;
             body.position = pos;
             //transform.Translate(0.0f, 0.0f, -1.5f * other.transform.position.z);
