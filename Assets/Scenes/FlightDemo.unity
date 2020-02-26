@@ -915,8 +915,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299142098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051292952, y: 20.36325, z: -0.22301337}
-  m_LocalScale: {x: 125.99999, y: 2, z: 125.99999}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 300, y: 2, z: 300}
   m_Children: []
   m_Father: {fileID: 638956444}
   m_RootOrder: 1
@@ -6602,7 +6602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638956442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.051292952, y: -0.36324984, z: 0.22301337}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 833092434}
@@ -6628,7 +6628,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FieldSize: {x: 50, y: 10, z: 50}
   FieldOffset: {x: 0, y: 0, z: 0}
-  noOfAsteroids: 30
+  maxForce: 8
+  maxTorque: 8
+  minForce: 4
+  minTorque: 4
+  noOfAsteroids: 20
 --- !u!114 &638956446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7118,8 +7122,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833092430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051292952, y: -19.63675, z: -0.22301337}
-  m_LocalScale: {x: 125.99999, y: 2, z: 125.99999}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
+  m_LocalScale: {x: 300, y: 2, z: 300}
   m_Children: []
   m_Father: {fileID: 638956444}
   m_RootOrder: 0
@@ -7742,8 +7746,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128451856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.051292, y: 0.36324984, z: -0.22301337}
-  m_LocalScale: {x: 6, y: 42, z: 125.99999}
+  m_LocalPosition: {x: 60, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 100, z: 300}
   m_Children: []
   m_Father: {fileID: 638956444}
   m_RootOrder: 3
@@ -7899,8 +7903,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219986127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -59.948708, y: 0.36324984, z: -0.22301337}
-  m_LocalScale: {x: 6, y: 42, z: 125.99999}
+  m_LocalPosition: {x: -60, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 100, z: 300}
   m_Children: []
   m_Father: {fileID: 638956444}
   m_RootOrder: 2
@@ -8838,8 +8842,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507805809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051292952, y: 0.36324984, z: 59.776985}
-  m_LocalScale: {x: 125.99999, y: 42, z: 6}
+  m_LocalPosition: {x: 0, y: 0, z: 60}
+  m_LocalScale: {x: 300, y: 100, z: 6}
   m_Children: []
   m_Father: {fileID: 638956444}
   m_RootOrder: 5
@@ -9291,8 +9295,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761805569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.051292952, y: 0.36324984, z: -60.223015}
-  m_LocalScale: {x: 125.99999, y: 42, z: 6}
+  m_LocalPosition: {x: 0, y: 0, z: -60}
+  m_LocalScale: {x: 300, y: 100, z: 6}
   m_Children: []
   m_Father: {fileID: 638956444}
   m_RootOrder: 4
@@ -14115,6 +14119,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799434245}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1834011045
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1852219612
 GameObject:
   m_ObjectHideFlags: 0

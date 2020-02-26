@@ -26,21 +26,9 @@ public class asteroid : MonoBehaviour, breakable
         }
     }
 
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
- 
-    
     static void Create(Vector3 position, float scale, GameObject asteroid)
     {
         ObjectPoolManager.GetManager().GetPool("Asteroid Pool").GetObject();
-        
     }
 
 }
