@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7056604621604578920}
   - component: {fileID: 7759376770844471995}
   - component: {fileID: 1336578183344381515}
-  - component: {fileID: 1448712722328630421}
   - component: {fileID: 4555484133037715861}
   - component: {fileID: 3486684630610751495}
+  - component: {fileID: 1448712722328630421}
   - component: {fileID: 401742598523556686}
   m_Layer: 0
   m_Name: Asteroid
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1448712722328630421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8059143420053201630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870c5bc17a81ecc4b8c0b448bec21b5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minScale: 0.25
 --- !u!54 &4555484133037715861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,6 +112,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.5275784
   m_Center: {x: -15.5736475, y: -1.8197426, z: 1.992291}
+--- !u!114 &1448712722328630421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059143420053201630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870c5bc17a81ecc4b8c0b448bec21b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0.25
 --- !u!114 &401742598523556686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,4 +137,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a025a6838ae5b6148bcc2c7861d3d29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  justTeleported: 0

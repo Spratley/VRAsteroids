@@ -5,21 +5,23 @@ using UnityEngine;
 public class asteroid : MonoBehaviour, breakable
 {
 
-
+  
     public float minScale = 0.25f;
    
-    public void TakeDamage ()
-      
+    public void TakeDamage (ScoreManager score) 
     {
-        if (transform.localScale.x<minScale)
+        score.AddScore((int)(10 / transform.localScale.x));
+        var pool = ObjectPoolManager.GetManager().GetPool("Asteroid Pool");
+
+        if (transform.localScale.x < minScale)
         {
-            ObjectPoolManager.GetManager().GetPool("Asteroid Pool").PoolObject(gameObject);
-            return;
+            pool.PoolObject(gameObject);
         }
-        if (transform.localScale.x >= minScale)
+        else
         {
             transform.localScale /= 2;
-            var obj = ObjectPoolManager.GetManager().GetPool("Asteroid Pool").GetObject();
+            
+            var obj = pool.GetObject();
             obj.transform.localScale = transform.localScale;
             obj.transform.position = transform.position;
             obj.transform.rotation = transform.rotation;

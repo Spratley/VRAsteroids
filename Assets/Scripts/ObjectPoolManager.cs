@@ -56,6 +56,11 @@ public class ObjectPool
         obj.SetActive(false);
     }
 
+    public int Count()
+    {
+        return objects.Count;
+    }
+
     public void DestroyPool()
     {
         foreach (GameObject obj in objects)
