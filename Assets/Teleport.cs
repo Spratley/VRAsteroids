@@ -10,7 +10,7 @@ public class Teleport : MonoBehaviour
     {
         if (justTeleported) {
             justTeleported = !justTeleported;
-            return;
+            //return;
         }
 
         if (other.name == "Bottom" || other.name == "Top")
