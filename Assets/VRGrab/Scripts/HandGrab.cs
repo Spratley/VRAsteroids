@@ -19,7 +19,7 @@ public class HandGrab : MonoBehaviour
 
     public void TryGrab()
     {
-        if(grabbed == null && trigger.objectsInTrigger.Count > 0) {
+         if(grabbed == null && trigger.objectsInTrigger.Count > 0) {
             IGrabbable tryGrab = null;
 
             foreach (var item in trigger.objectsInTrigger) {

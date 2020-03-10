@@ -13,7 +13,7 @@ public class laser : MonoBehaviour
     
     void Update()
     {
-        rb.AddRelativeForce(Vector3.forward * speed);
+        rb.AddRelativeForce(Vector3.forward * speed) ;
 
         if ((LaserOrigin - transform.position).sqrMagnitude >= distance)
         {
