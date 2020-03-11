@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class asteroid : MonoBehaviour, breakable
 {
-
-  
     public float minScale = 0.25f;
    
     public void TakeDamage (ScoreManager score) 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -56,9 +56,9 @@ public class ObjectPool
         obj.SetActive(false);
     }
 
-    public int Count()
+    public bool IsFull()
     {
-        return objects.Count;
+        return objects.Count >= size;
     }
 
     public void DestroyPool()

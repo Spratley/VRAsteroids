@@ -11,11 +11,6 @@ public class laser : MonoBehaviour
     public ScoreManager player;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(-100.0f, 0.0f, 0.0f);
-        }
-
         if ((LaserOrigin - transform.position).sqrMagnitude >= distance)
         {
             ObjectPoolManager.GetManager().GetPool("Laser Pool").PoolObject(this.gameObject);

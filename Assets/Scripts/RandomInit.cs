@@ -7,7 +7,8 @@ public class RandomInit : MonoBehaviour
     public Vector3 FieldSize, FieldOffset;
     public float maxForce, maxTorque;
     public float minForce, minTorque;
-    public int initAsteroids, deltaAsteroids;
+    public int initAsteroids;
+    public float deltaAsteroids;
     public int wave;
     public float waveDistance;
     void Start()
@@ -18,10 +19,10 @@ public class RandomInit : MonoBehaviour
     void Update()
     {
         var pool = ObjectPoolManager.GetManager().GetPool("Asteroid Pool");
-        if (pool.Count() <= 0)
+        if (pool.IsFull())
         {
             wave += 1;
-            SpawnWave(initAsteroids + deltaAsteroids * wave);
+            SpawnWave(Mathf.RoundToInt(initAsteroids + deltaAsteroids * wave));
         }
     }
 
