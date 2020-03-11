@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
+    public GameObject miniature;
+    public float minimapScale;
+    private GameObject mini;
     private void OnTriggerEnter(Collider other)
     {
         var body = GetComponent<Rigidbody>();
@@ -31,34 +34,23 @@ public class Teleport : MonoBehaviour
             body.position = pos;
             //transform.Translate(0.0f, 0.0f, -1.5f * other.transform.position.z);
         }
+    }
 
-        /*
-        if (other.name == "Bottom" || other.name == "Top")
+    public void Start()
+    {
+        var minimap = GameObject.Find("Minimap").transform;
+        if (miniature)
+            mini = Instantiate(miniature, minimap);
+        else
         {
-            var pos = transform.position;
-            pos.y = -pos.y * 0.99f;
-            transform.position = pos;
-
-            //this.transform.Translate(0.0f, -(other.gameObject.transform.position.y * 2.0f - 2.0f * this.transform.localScale.y) - 2.0f * other.bounds.size.y, 0.0f, Space.World);
-            justTeleported = true;
+            mini = ObjectPoolManager.GetManager().GetPool("Miniature Pool").GetObject();
+            mini.transform.SetParent(minimap);
         }
-        if (other.name == "Left" || other.name == "Right")
-        {
-            var pos = transform.position;
-            pos.x = -pos.x * 0.99f;
-            transform.position = pos;
-            //this.transform.Translate(-(other.gameObject.transform.position.x * 2.0f - 2.0f * this.transform.localScale.x) - 2.0f * other.bounds.size.x, 0.0f, 0.0f, Space.World);
-            justTeleported = true;
-        }
-        if (other.name == "Front" || other.name == "Back")
-        {
-            var pos = transform.position;
-            pos.z = -pos.z * 0.99f;
-            transform.position = pos;
-            //this.transform.Translate(0.0f, 0.0f, -(other.gameObject.transform.position.z * 2.0f - 2.0f * this.transform.localScale.z) - 2.0f * other.bounds.size.z, Space.World);
-            justTeleported = true;
-        }
-        */
+    }
+    public void Update()
+    {
+        mini.transform.localPosition = transform.position / minimapScale;
+        mini.transform.localRotation = transform.rotation;
     }
 
     //private void OnTriggerExit(Collider other)

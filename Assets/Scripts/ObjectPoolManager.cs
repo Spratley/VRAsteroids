@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -91,7 +91,7 @@ public class ObjectPoolManager// : MonoBehaviour
     {
         List<ObjectPool> foundPools = GetManager().pools.Where(pool => pool.name == name).ToList();
 
-        if (foundPools.Count() < 0)
+        if (foundPools.Count() <= 0)
         {
             Debug.LogError("Attempting to access a pool that doesn't exist!");
             return null;
