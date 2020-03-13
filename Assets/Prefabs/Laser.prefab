@@ -158,4 +158,5 @@ MonoBehaviour:
   distance: 5000
   rb: {fileID: 9183668128826064639}
   LaserOrigin: {x: 0, y: 0, z: 0}
-  speed: 1
+  player: {fileID: 8121502902632971772, guid: 4b0dfb1a38068b84aba5216c7f4cebde, type: 3}
+  speed: 5

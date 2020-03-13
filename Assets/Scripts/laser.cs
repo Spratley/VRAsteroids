@@ -8,12 +8,13 @@ public class laser : MonoBehaviour
     public float distance = 400;
     public Rigidbody rb;
     public Vector3 LaserOrigin;
+    public scoreManager player;
 
     public float speed;
     
     void Update()
     {
-        rb.AddRelativeForce(Vector3.forward * speed) ;
+        rb.AddRelativeForce(Vector3.forward * speed);
 
         if ((LaserOrigin - transform.position).sqrMagnitude >= distance)
         {
@@ -31,7 +32,7 @@ public class laser : MonoBehaviour
             foreach (breakable item in lasers)
             {
                 ObjectPoolManager.GetManager().GetPool("Laser Pool").PoolObject(this.gameObject);
-                item.TakeDamage();
+                item.TakeDamage(player);
                 
             }
         }

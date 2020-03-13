@@ -8,9 +8,11 @@ public class asteroid : MonoBehaviour, breakable
 
     public float minScale = 0.25f;
    
-    public void TakeDamage ()
+    public void TakeDamage (scoreManager Score)
       
     {
+        Score.AddScore((int)(10 / transform.localScale.x));
+
         if (transform.localScale.x<minScale)
         {
             ObjectPoolManager.GetManager().GetPool("Asteroid Pool").PoolObject(gameObject);
