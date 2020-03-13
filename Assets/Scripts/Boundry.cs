@@ -9,7 +9,7 @@ public class Boundry : MonoBehaviour
     public Vector3 limit;
 
     public GameObject cornerPrefab;
-    private List<GameObject> corners;
+    private List<GameObject> corners = new List<GameObject>();
 
     public GameObject bottom, top;
     public GameObject left, right;
