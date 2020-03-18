@@ -14,7 +14,7 @@ public void Fire(scoreManager player)
             laser.transform.rotation = transform.rotation;
             Rigidbody rb = laser.GetComponent<Rigidbody>();
             rb.Sleep();
-            rb.AddForce(this.transform.forward * 10, ForceMode.Impulse);
+            rb.AddForce(this.transform.forward * laser.GetComponent<laser>().speed, ForceMode.Force);
 
         }
     }

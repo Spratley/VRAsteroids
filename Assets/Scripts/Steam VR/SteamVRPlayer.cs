@@ -7,6 +7,7 @@ public class SteamVRPlayer : MonoBehaviour
 {
 	public SteamVR_Action_Boolean teleportAction;
 	public SteamVR_Action_Boolean grabAction;
+	public SteamVR_Action_Boolean pinchAction;
 	
 	public HandGrab[] hands;
 	public SteamVR_Input_Sources[] handTypes;
@@ -14,6 +15,7 @@ public class SteamVRPlayer : MonoBehaviour
 	private void Update()
 	{
 		CheckGrab();
+		CheckInteract();
 		CheckRelease();
 	}
 
@@ -76,6 +78,17 @@ public class SteamVRPlayer : MonoBehaviour
 		//		}
 		//	}
 		//}
+	}
+
+	void CheckInteract()
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			if (GetActionDown(pinchAction, handTypes[i]))
+			{
+				hands[i].TryInteract();
+			}
+		}
 	}
 
 	public bool GetActionDown(SteamVR_Action_Boolean action, SteamVR_Input_Sources handType)

@@ -21,6 +21,7 @@ public class SimpleGrabbable : MonoBehaviour, IGrabbable
 
     public void Interact()
     {
+        print(gameObject.name);
         interactEvent.Invoke();
     }
 
