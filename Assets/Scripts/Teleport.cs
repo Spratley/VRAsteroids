@@ -49,8 +49,9 @@ public class Teleport : MonoBehaviour
     }
     public void Update()
     {
-        mini.transform.localPosition = transform.position / minimapScale;
-        mini.transform.localRotation = transform.rotation;
+        mini.transform.localPosition = transform.localPosition / minimapScale;
+        mini.transform.localRotation = transform.localRotation;
+        mini.transform.localScale = transform.localScale / minimapScale * 20.0f;
     }
 
     //private void OnTriggerExit(Collider other)
