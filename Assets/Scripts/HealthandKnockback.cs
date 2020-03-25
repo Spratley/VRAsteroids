@@ -8,7 +8,7 @@ public class HealthandKnockback : MonoBehaviour
 {
     // Update is called once per frame
     public Rigidbody rb;
-    public TextMesh healthAmount;
+    public Text healthAmount;
     public int health = 10;
     public int maxHealth = 15;
  

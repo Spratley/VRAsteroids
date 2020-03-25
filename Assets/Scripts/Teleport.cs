@@ -2,46 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Teleport : MonoBehaviour
 {
+    static public Boundry s_boundary;
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     bool justTeleported = false;
+
+    private bool MovingTowards(GameObject bound)
+    {
+        Vector3 objVelocity = rb.velocity;
+        Vector3 triggerOut = bound.GetComponent<VectorOut>().vectorOut;
+
+        if (Vector3.Dot(triggerOut, objVelocity) > 0)
+        {
+            return true;
+        }
+        return false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (justTeleported) {
+        if (justTeleported)
+        {
             justTeleported = !justTeleported;
             //return;
         }
 
-        if (other.name == "Bottom" || other.name == "Top")
+        if (other.name == s_boundary.bottom.name || other.name == s_boundary.top.name)
         {
-            var pos = transform.position;
-            pos.y = -pos.y * 0.99f;
-            transform.position = pos;
-
-            //this.transform.Translate(0.0f, -(other.gameObject.transform.position.y * 2.0f - 2.0f * this.transform.localScale.y) - 2.0f * other.bounds.size.y, 0.0f, Space.World);
-            justTeleported = true;
+            if (MovingTowards((s_boundary.bottom.name == other.name) ? s_boundary.bottom : s_boundary.top))
+            {
+                var pos = transform.position;
+                pos.y = -pos.y * 0.99f;
+                transform.position = pos;
+            }
         }
-        if (other.name == "Left" || other.name == "Right")
+        if (other.name == s_boundary.left.name || other.name == s_boundary.right.name)
         {
-            var pos = transform.position;
-            pos.x = -pos.x * 0.99f;
-            transform.position = pos;
-            //this.transform.Translate(-(other.gameObject.transform.position.x * 2.0f - 2.0f * this.transform.localScale.x) - 2.0f * other.bounds.size.x, 0.0f, 0.0f, Space.World);
-            justTeleported = true;
+            if (MovingTowards((s_boundary.left.name == other.name) ? s_boundary.left : s_boundary.right))
+            {
+                var pos = transform.position;
+                pos.x = -pos.x * 0.99f;
+                transform.position = pos;
+            }
         }
-        if (other.name == "Front" || other.name == "Back")
+        if (other.name == s_boundary.front.name || other.name == s_boundary.back.name)
         {
-            var pos = transform.position;
-            pos.z = -pos.z * 0.99f;
-            transform.position = pos;
-            //this.transform.Translate(0.0f, 0.0f, -(other.gameObject.transform.position.z * 2.0f - 2.0f * this.transform.localScale.z) - 2.0f * other.bounds.size.z, Space.World);
-            justTeleported = true;
+            if (MovingTowards((s_boundary.front.name == other.name) ? s_boundary.front : s_boundary.back))
+            {
+                var pos = transform.position;
+                pos.z = -pos.z * 0.99f;
+                transform.position = pos;
+            }
         }
     }
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    justTeleported = false;
-    //}
 }

@@ -25,7 +25,6 @@ public class laser : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         var lasers = collision.gameObject.GetComponents<MonoBehaviour>().Where(script => script.GetType().GetInterface("breakable") != null);
-        Debug.Log(lasers.Count());
 
         if (lasers.Count() > 0)
         {

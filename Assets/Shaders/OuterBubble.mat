@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestShip
-  m_Shader: {fileID: 4800000, guid: 5e489a53321d43744a194f8cec0a7540, type: 3}
+  m_Name: OuterBubble
+  m_Shader: {fileID: 4800000, guid: 367aab3bc2ca02944ae86d8ea320231b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.36667842, g: 0.69722986, b: 0.75471693, a: 0.09803922}
+    - _Color: {r: 0, g: 0.7518918, b: 0.8679245, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
