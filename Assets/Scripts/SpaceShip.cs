@@ -16,10 +16,8 @@ public class SpaceShip : MonoBehaviour
     public float spinRate;
 
 
-    //public List<Transform> bulletBarrels;
-    //public GameObject bulletPrefab;
-    public shootfrom[] barrels;
-    public scoreManager score;
+    public List<Transform> bulletBarrels;
+    public GameObject bulletPrefab;
 
 	private void Start()
     {
@@ -68,16 +66,10 @@ public class SpaceShip : MonoBehaviour
 
     public void Fire()
     {
-        //Loops through attached barrels
-        for (int i = 0; i < barrels.Length; i++)
+        foreach(Transform b in bulletBarrels)
         {
-            //Fires from each barrel
-            barrels[i].Fire(score);
+            CreateBullet(b);
         }
-        //foreach(Transform b in bulletBarrels)
-        //{
-        //    CreateBullet(b);
-        //}
     }
 
     public GameObject CreateBullet(Transform spawnTransform)

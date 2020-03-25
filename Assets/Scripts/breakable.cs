@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface breakable {
     
-    void TakeDamage(scoreManager player);
+    void TakeDamage();
   
 }

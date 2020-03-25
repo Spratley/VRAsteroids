@@ -7,9 +7,6 @@ public class PCPlayer : MonoBehaviour
     public float rotSpeed;
     public float force;
 
-    public scoreManager p;
-    public shootfrom from1, from2;
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -37,12 +34,6 @@ public class PCPlayer : MonoBehaviour
                     hit.rigidbody.AddForce(-transform.forward * force);
                 }
             }
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            from1.Fire(p);
-            from2.Fire(p);
         }
 
         //if(Input.GetMouseButtonDown(0))

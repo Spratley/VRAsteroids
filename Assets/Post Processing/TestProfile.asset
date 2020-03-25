@@ -84,10 +84,10 @@ MonoBehaviour:
     value: {r: 0, g: 0, b: 0, a: 1}
   scale:
     overrideState: 1
-    value: 2
+    value: 1
   depthThresh:
     overrideState: 1
-    value: 2.25
+    value: 1.93
   normalThresh:
     overrideState: 1
     value: 0.087
