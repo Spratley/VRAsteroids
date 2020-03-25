@@ -5,76 +5,103 @@ using Valve.VR;
 
 public class SteamVRPlayer : MonoBehaviour
 {
-	public SteamVR_Input_Sources handType;
 	public SteamVR_Action_Boolean teleportAction;
 	public SteamVR_Action_Boolean grabAction;
+	public SteamVR_Action_Boolean pinchAction;
 	
-	public SteamVRHand[] hands;
+	public HandGrab[] hands;
+	public SteamVR_Input_Sources[] handTypes;
 	
 	private void Update()
 	{
 		CheckGrab();
+		CheckInteract();
 		CheckRelease();
 	}
 
 	void CheckGrab()
 	{
-		if (GetActionDown(grabAction))
+		for (int i = 0; i < 2; i++)
 		{
-			foreach (SteamVRHand hand in hands)
+			if(GetActionDown(grabAction, handTypes[i]))
 			{
-				if (hand.overlapObject == null)
-					continue;
-
-				if (!hand.holding && !hand.overlapObject.grabbed)
-				{
-					hand.holding = true;
-					hand.overlapObject.grabbed = true;
-					
-					var fj = hand.gameObject.AddComponent<FixedJoint>();
-					fj.connectedBody = hand.overlapObject.gameObject.GetComponent<Rigidbody>();
-				}
+				hands[i].TryGrab();
 			}
 		}
+		//if (GetActionDown(grabAction))
+		//{
+		//	foreach (SteamVRHand hand in hands)
+		//	{
+		//		if (hand.overlapObject == null)
+		//			continue;
+		//
+		//		if (!hand.holding && !hand.overlapObject.grabbed)
+		//		{
+		//			hand.holding = true;
+		//			hand.overlapObject.grabbed = true;
+		//			
+		//			var fj = hand.gameObject.AddComponent<FixedJoint>();
+		//			fj.connectedBody = hand.overlapObject.gameObject.GetComponent<Rigidbody>();
+		//		}
+		//	}
+		//}
 	}
 
 	void CheckRelease()
 	{
-		if (GetActionUp(grabAction))
+		for (int i = 0; i < 2; i++)
 		{
-			foreach (SteamVRHand hand in hands)
+			if (GetActionUp(grabAction, handTypes[i]))
 			{
-				if (hand.overlapObject == null)
-					continue;
+				hands[i].TryRelease();
+			}
+		}
+		//if (GetActionUp(grabAction))
+		//{
+		//	foreach (SteamVRHand hand in hands)
+		//	{
+		//		if (hand.overlapObject == null)
+		//			continue;
+		//
+		//		if (hand.holding)
+		//		{
+		//			hand.holding = false;
+		//			hand.overlapObject.grabbed = false;
+		//
+		//			Joint tryJoint;
+		//			if(hand.TryGetComponent(out tryJoint))
+		//			{
+		//				Destroy(tryJoint);
+		//			}
+		//
+		//			hand.overlapObject.rb.velocity = hand.velocity;
+		//		}
+		//	}
+		//}
+	}
 
-				if (hand.holding)
-				{
-					hand.holding = false;
-					hand.overlapObject.grabbed = false;
-
-					Joint tryJoint;
-					if(hand.TryGetComponent(out tryJoint))
-					{
-						Destroy(tryJoint);
-					}
-
-					hand.overlapObject.rb.velocity = hand.velocity;
-				}
+	void CheckInteract()
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			if (GetActionDown(pinchAction, handTypes[i]))
+			{
+				hands[i].TryInteract();
 			}
 		}
 	}
 
-	public bool GetActionDown(SteamVR_Action_Boolean action)
+	public bool GetActionDown(SteamVR_Action_Boolean action, SteamVR_Input_Sources handType)
 	{
 		return action.GetStateDown(handType);
 	}
 
-	public bool GetAction(SteamVR_Action_Boolean action)
+	public bool GetAction(SteamVR_Action_Boolean action, SteamVR_Input_Sources handType)
 	{
 		return action.GetState(handType);
 	}
 
-	public bool GetActionUp(SteamVR_Action_Boolean action)
+	public bool GetActionUp(SteamVR_Action_Boolean action, SteamVR_Input_Sources handType)
 	{
 		return action.GetStateUp(handType);
 	}
