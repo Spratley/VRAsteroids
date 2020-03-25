@@ -16,26 +16,26 @@ public class SteamVRGrabController : SteamVRGrabbable
 
 	private SteamVRPlayer player;
 
-	public override void Awake()
-	{
-		base.Awake(); 
-
-		player = FindObjectOfType<SteamVRPlayer>();
-
-		//if (thrustEvent == null)
-		//	thrustEvent = new UnityEvent<Vector3>(); 
-	}
-
-	private void Update()
-	{
-		if(player.GetAction(activateBool) && grabbed)
-		{
-			onActivate();
-		}
-	}
-
-	public void onActivate()
-	{
-		thrustEvent.Invoke(ship.forward);
-	}
+	//public override void Awake()
+	//{
+	//	base.Awake(); 
+	//
+	//	player = FindObjectOfType<SteamVRPlayer>();
+	//
+	//	//if (thrustEvent == null)
+	//	//	thrustEvent = new UnityEvent<Vector3>(); 
+	//}
+	//
+	//private void Update()
+	//{
+	//	if(player.GetAction(activateBool) && grabbed)
+	//	{
+	//		onActivate();
+	//	}
+	//}
+	//
+	//public void onActivate()
+	//{
+	//	thrustEvent.Invoke(ship.forward);
+	//}
 }

@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class asteroid : MonoBehaviour, breakable
 {
-
+    void Start()
+    {
+        var rb = GetComponent<Rigidbody>();
+        rb.maxDepenetrationVelocity = 0.0f;
+        rb.drag = 1;
+    }
 
     public float minScale = 0.25f;
    
-    public void TakeDamage ()
+    public void TakeDamage (scoreManager Score)
       
     {
+        Score.AddScore((int)(10 / transform.localScale.x));
+
         if (transform.localScale.x<minScale)
         {
             ObjectPoolManager.GetManager().GetPool("Asteroid Pool").PoolObject(gameObject);
@@ -24,15 +31,6 @@ public class asteroid : MonoBehaviour, breakable
             obj.transform.position = transform.position;
             obj.transform.rotation = transform.rotation;
         }
-    }
-
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
  

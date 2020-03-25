@@ -56,6 +56,11 @@ public class ObjectPool
         obj.SetActive(false);
     }
 
+    public bool IsFull()
+    {
+        return objects.Count >= size;
+    }
+
     public void DestroyPool()
     {
         foreach (GameObject obj in objects)
@@ -86,7 +91,7 @@ public class ObjectPoolManager// : MonoBehaviour
     {
         List<ObjectPool> foundPools = GetManager().pools.Where(pool => pool.name == name).ToList();
 
-        if (foundPools.Count() < 0)
+        if (foundPools.Count() <= 0)
         {
             Debug.LogError("Attempting to access a pool that doesn't exist!");
             return null;
