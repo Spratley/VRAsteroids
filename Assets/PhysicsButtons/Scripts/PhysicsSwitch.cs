@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 [SelectionBase]
 public class PhysicsSwitch : PhysicsDevice
@@ -49,16 +49,16 @@ public class PhysicsSwitch : PhysicsDevice
         value = (rotation / range) + 0.5f;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = new Color(1, 1, 1, 0.1f);
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Handles.color = new Color(1, 1, 1, 0.1f);
 
-        Handles.DrawSolidArc(handle.transform.position, transform.right, transform.up, range / 2, gizmoRadius);
-        Handles.DrawSolidArc(handle.transform.position, transform.right, transform.up, -range / 2, gizmoRadius);
+    //    Handles.DrawSolidArc(handle.transform.position, transform.right, transform.up, range / 2, gizmoRadius);
+    //    Handles.DrawSolidArc(handle.transform.position, transform.right, transform.up, -range / 2, gizmoRadius);
 
-        Handles.color = new Color(1, 1, 1, 1);
+    //    Handles.color = new Color(1, 1, 1, 1);
 
-        Handles.DrawWireArc(handle.transform.position, transform.right, transform.up, range / 2, gizmoRadius);
-        Handles.DrawWireArc(handle.transform.position, transform.right, transform.up, -range / 2, gizmoRadius);
-    }
+    //    Handles.DrawWireArc(handle.transform.position, transform.right, transform.up, range / 2, gizmoRadius);
+    //    Handles.DrawWireArc(handle.transform.position, transform.right, transform.up, -range / 2, gizmoRadius);
+    //}
 }
