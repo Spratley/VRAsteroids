@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class asteroid : MonoBehaviour, breakable
-{
+{    
     void Start()
     {
         var rb = GetComponent<Rigidbody>();
@@ -31,6 +31,9 @@ public class asteroid : MonoBehaviour, breakable
             obj.transform.position = transform.position;
             obj.transform.rotation = transform.rotation;
         }
+
+        //Score = the player :D
+        Score.gameObject.GetComponent<SoundManager>().PlayBreak(transform.position);
     }
 
  

@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource brakeL;
-    public AudioSource brakeR;
+    public AudioClip breakAsteroid;
 
     public AudioSource laserL;
     public AudioSource laserR;
@@ -35,6 +34,11 @@ public class SoundManager : MonoBehaviour
         laserR.Play();
     }
 
+    public void PlayBreak(Vector3 position)
+    {
+        AudioSource.PlayClipAtPoint(breakAsteroid, position, 4.0f);
+    }
+
     IEnumerator EngineCheck()
     {
         thrusterGoL.Play();
@@ -58,24 +62,6 @@ public class SoundManager : MonoBehaviour
         thrusterLoopR.Play();
     }
 
-    //IEnumerator BrakesCheck()
-    //{
-    //    while (true)
-    //    {
-    //        if (!(brakeL.isPlaying) && !(brakeR.isPlaying))
-    //        {
-    //            if (!engineIdle.isPlaying)
-    //            {
-    //                engineIdle.Play();
-    //            }
-
-    //            break;
-    //        }
-
-    //        yield return null;
-    //    }
-    //}
-
     void Update()
     {
         if (prevVelocity <= 1)
@@ -93,16 +79,10 @@ public class SoundManager : MonoBehaviour
                 thrusterGoL.Stop();
                 thrusterGoR.Stop();
 
-                ////Play brakes
-                //brakeL.Play();
-                //brakeR.Play();
-
                 if (!engineIdle.isPlaying)
                 {
                     engineIdle.Play();
                 }
-
-                //StartCoroutine(BrakesCheck());
             }
         }
 
