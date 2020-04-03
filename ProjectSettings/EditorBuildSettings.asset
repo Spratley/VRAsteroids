@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PersistentScene.unity
+    guid: b78301de42e27ec4d9183be057d8a73f
+  - enabled: 1
+    path: Assets/Scenes/CutsceneScene.unity
+    guid: 0f2fef3899fb4554a8df18d943769ae8
+  - enabled: 1
     path: Assets/Scenes/FlightDemo.unity
     guid: 8a945b749e3ded640a7941de865bb643
   m_configObjects: {}
